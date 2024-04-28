@@ -28,3 +28,19 @@ let isOkThis: boolean = true;
 isOkThis = false;
 
 //**************************************************************************************************** */
+
+//Union type -- var dat hold many types in it
+
+//!example how to be stored 2 types & to be accepted by TypeScript
+let tax: number | string = 10;
+tax = 100;
+tax = '$20';
+console.log(tax);
+
+
+//!example whit 3 status & assumptions for result to be chosen from
+let requestStatus: 'pending' | 'success' | 'error' =  'pending';
+requestStatus = 'success';
+
+//***************************************************************************************************** */
+
