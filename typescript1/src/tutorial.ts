@@ -78,7 +78,7 @@ let orderStatus: 'processing'|'shipped'|'delivered'|'cancelled' = 'processing';
 
 //********************************************************************************************************* */
 
-//! Array in TS
+                                //! Array in TS
 
 let price: number[] = [100, 75, 55, 47]; //
 // price.push('ups') // error --> Argument of type 'string' is not assignable to parameter of type 'number'.
@@ -92,4 +92,20 @@ let fruits: string[] = ['apple', 'orange', 'banana'];
 // TS dynamic assignment of control type values --> NG!
 let names = ['Anna', 'Gogo', 11]; //?? --> let names: (string | number)[]
 
+let numbersBox: number[] = [22, 66, 99, 68];
 
+let colors: string[] = ['red', 'green', 'yellow'];
+
+// mixed array assignment
+let mixedArray: (number | string) [] = [1, 'two', 3, 'four'];
+
+
+//****************************************************************************************************** */
+
+
+                        // OBJECTS
+
+let car:{brand: string, year: number} = { brand: 'Ford', year: 2000 };
+
+car.brand = 'Toyota';
+car.year = 2006;
