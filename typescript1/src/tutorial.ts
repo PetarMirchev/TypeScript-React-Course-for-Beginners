@@ -109,3 +109,51 @@ let car:{brand: string, year: number} = { brand: 'Ford', year: 2000 };
 
 car.brand = 'Toyota';
 car.year = 2006;
+
+
+
+let book = {title: 'book', cost: 20};
+let pen = {title: 'pen', cost: 10 };
+let notebook = {title: 'notebook'};
+
+//!array whit objects inside whit described structure. 'cost?' is optional
+let items:{ title: string, cost?: number }[] = [book, pen, notebook];
+
+//restricted access 'readonly' on title (can not be changed)
+let readItems: { readonly title: string, cost?: number }[] = [book, pen, notebook];
+// readItems[0].title = 'new name'; //not working
+
+//********************************************************************************************************** */
+
+
+let bike: {brand: string, year: number} = {brand: 'yamaha', year: 2004};
+// bike.year = 'random year'; //incorrect
+
+let product1 = { title: 'shirt', price: 10 };
+let product2 = { title: 'pants' };
+let products: { title: string, price?: number } [] = [product1, product2];
+products.push({ title: 'shoes', price: 5 });
+
+//******************************************************************************************************** */
+
+
+                // Functions
+
+
+function seyHi(name: string){
+    console.log(`Hello ${name.toUpperCase()}!`);    
+}
+
+seyHi('Mimi');
+
+//************************************************************ */
+
+//!by set "( price: number): number {.." sey to TS i need to return NUMBER! from function
+function calculateDiscount( price: number): number {
+    return price * 0.9;
+}
+
+const finalPrice = calculateDiscount(200);
+console.log(finalPrice);
+
+//************************************************************** */
