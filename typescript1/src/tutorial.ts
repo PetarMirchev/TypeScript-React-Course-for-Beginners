@@ -236,6 +236,30 @@ console.log(sumResult);
 
 
 
-//******************************************************************************************* */
+//************************************************************************************ */
 
 // What type to return from function if no data or result is return??
+//! ': void' is function that don't returns anything
+function logMessage(message: string): void {
+    console.log(message);
+};
+
+logMessage('Hello TS?');
+
+//******************************************************************************************************* */
+
+
+// type guard logic for different types!
+function processInput(input: string | number) {
+    if (typeof input === 'number'){
+        console.log(input);
+    } else {
+        console.log(input.toUpperCase());     
+    }
+    
+};
+
+processInput(10);
+processInput('Hello');
+
+//**************************************************************************************************** */
