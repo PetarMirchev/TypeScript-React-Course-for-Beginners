@@ -157,3 +157,43 @@ const finalPrice = calculateDiscount(200);
 console.log(finalPrice);
 
 //************************************************************** */
+
+
+//! problems using 'ANY' type in function!
+function addThree(number: any){
+    let myCustomHardNumber: number = 3;
+    return number + myCustomHardNumber; //3 + 3 
+}
+
+const result = addThree(3); // functions return type 'ANY' and i can du everything!
+const someValue = result;
+//!result is from type 'ANY' and dat cant stop me use staff not passible to be used (.myMethod(); ,.toLowerCase(); ...)!
+// someValue.myMethod();// tutorial.ts:171 Uncaught TypeError: someValue.myMethod is not a function
+// someValue.toLowerCase(); // incorrect will throw error in code when runs
+
+
+//*********************************************************************************************************** */
+
+
+// Create a new array of names.
+// Write a new function that checks if a name is in your array. 
+// This function should take a name as a parameter and return a boolean.
+
+const userNames: string[] = ['Pepi', 'Mimi', 'Ana', 'Gogo', 'Tasho', 'Petar'];
+
+function isNameInList(name: string): boolean {
+    return userNames.includes(name);
+};
+
+let nameToCheck = 'Pepi';
+
+if (isNameInList(nameToCheck)){
+    console.log(`${nameToCheck} is ON the list!`); 
+} else {
+    console.log(`${nameToCheck} is NOT the list!`);
+}
+
+
+//********************************************************************************************************* */
+
+
