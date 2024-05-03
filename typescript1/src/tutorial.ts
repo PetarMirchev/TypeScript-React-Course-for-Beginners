@@ -197,3 +197,45 @@ if (isNameInList(nameToCheck)){
 //********************************************************************************************************* */
 
 
+//! default & optional parameters
+
+//example for optional parameters
+function calculatePrice( price: number, discount: number): number {
+    return price - (discount || 0); // work whit optional parameters in TS using '||' --> (discount || 0)
+};
+
+let priceAfterDiscount = calculatePrice(100, 20);
+console.log(priceAfterDiscount);
+
+
+//example for default parameter (penaltyPoints: number = 0)
+function calculateScore(initialScore: number, penaltyPoints: number = 0): number {
+    return initialScore - penaltyPoints; //if not 'penaltyPoints' number is pass default is '0'
+};
+
+let scoreAfterPenalty = calculateScore(100, 20);
+let scoreWithoutPenalty = calculateScore(300)
+
+
+//******************************************************************************************************** */
+
+// rest operator example
+function sum(message: string, ...numbers: number []) :string {
+    const doubled = numbers.map( (num) => num * 2);
+    console.log(doubled);
+
+    let total_1 = numbers.reduce((prev, current) => {
+        return prev + current;
+    }, 0);
+    return`${message} ${total_1}`;
+    
+};
+
+let sumResult = sum('Total is: ', 1,2,3,4,5);
+console.log(sumResult);
+
+
+
+//******************************************************************************************* */
+
+// What type to return from function if no data or result is return??
