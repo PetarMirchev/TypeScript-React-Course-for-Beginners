@@ -248,7 +248,7 @@ logMessage('Hello TS?');
 
 //******************************************************************************************************* */
 
-
+// Using Union Types as Function Parameters
 // type guard logic for different types!
 function processInput(input: string | number) {
     if (typeof input === 'number'){
@@ -263,3 +263,37 @@ processInput(10);
 processInput('Hello');
 
 //**************************************************************************************************** */
+
+
+
+//Functions - Using Objects as Function Parameters
+
+function createEmployee({ id }: { id:number }): { id:number; isActive:boolean; }{
+    return {id, isActive: id % 2 === 0};
+};
+
+const first1 = createEmployee({ id:1 });
+const second1 = createEmployee({ id:2 });
+console.log(first1, second1);
+
+
+//alternative
+function createStudent( student: {id:number, name:string}): void {
+    console.log(`Welcome to the course ${student.name.toUpperCase()}`);  
+};
+
+const newStudentObject = { id: 5, name: 'anna', email: 'anna@gmail.com' };
+//Excess Property Checks
+//! in case when object is pass directly in function TS NOT spam ERROR! (extra email)
+// createStudent(newStudentObject);
+//! in case pass OBJ whit props TS match expected params in function & spam ERROR for 'email'!
+// createStudent({id: 6, name: 'kamen', email: 'kamen@gmail.com'}); 
+
+
+//*************************************************************************************************** */
+
+
+// The first parameter, input, should be a union type that can be either a string or a number.
+// The second parameter, config, should be an object with a reverse property of type boolean, 
+// by default it "reverse" should be false.
+
