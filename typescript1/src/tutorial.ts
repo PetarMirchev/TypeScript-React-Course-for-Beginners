@@ -297,3 +297,79 @@ const newStudentObject = { id: 5, name: 'anna', email: 'anna@gmail.com' };
 // The second parameter, config, should be an object with a reverse property of type boolean, 
 // by default it "reverse" should be false.
 
+function processData( input: string | number, config: {reverse: boolean} = {reverse:false}): string | number {
+    if (typeof input === 'number') {
+        return input * input
+    } else { // text
+        return config.reverse? input.toUpperCase().split('').reverse().join('') : input.toUpperCase();
+    }
+}
+
+console.log(processData(10));
+console.log(processData('Hello'));
+console.log(processData('Hello', {reverse: true}));
+
+
+
+//******************************************************************************************************************** */
+
+
+                            // Type Alias
+
+type User_X = { id: number; name: string; isActive: boolean}
+
+const susan: User_X = {
+  id: 1,
+  name: 'mimi',
+  isActive: false,
+};
+
+const john: { id: number; name: string; isActive: boolean } = {
+  id: 1,
+  name: 'gogo',
+  isActive: true,
+};
+
+function createUserFull(user: { id: number; name: string; isActive: boolean }): {
+  id: number;
+  name: string;
+  isActive: boolean;
+} {
+  console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+
+  return user;
+}
+
+function createUserShort(user: User_X): User_X {
+    console.log(`Hello there ${user.name.toUpperCase()} !!!`);
+  
+    return user;
+  }
+  
+
+
+
+type StringOrNumber = string | number;
+
+let value_x: StringOrNumber;
+value_x = 'Hello!';
+value_x = 123;
+
+
+
+
+type Theme = 'light' | 'dark';
+let customTheme: Theme;
+customTheme = 'dark';
+customTheme = 'light';
+
+function setTheme(themeProp: Theme) {
+    customTheme = themeProp;
+};
+setTheme('dark');
+
+//***************************************************************************************************** */
+
+
+
+
