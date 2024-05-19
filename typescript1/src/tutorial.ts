@@ -397,5 +397,30 @@ printStaffDetails(bob);
 //*********************************************************************************************************** */
 
 
-// Intersection Types
+// Intersection Types  -  combine more props in object schema (expanded if is in)!
 
+type Book = {id: number; name: string; price: number};
+// type DiscountedBook = Book & {discount: number};
+
+const book1: Book = {
+    id:1,
+    name: 'how to fly free!',
+    price: 19.99,
+};
+
+const book2: Book = {
+    id:2,
+    name: 'open city road map',
+    price: 9.99,
+};
+
+//! add more options --->  '& {discount: number}' 
+//! same as ---> type DiscountedBook = Book & {discount: number};
+const discountedBook: Book & {discount: number} = {
+    id: 3,
+    name: 'Warrior of east',
+    price: 10.00,
+    discount: 0.15,
+};
+
+//*********************************************************************************************************** */
