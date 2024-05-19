@@ -344,7 +344,7 @@ function createUserShort(user: User_X): User_X {
     console.log(`Hello there ${user.name.toUpperCase()} !!!`);
   
     return user;
-  }
+}
   
 
 
@@ -370,6 +370,32 @@ setTheme('dark');
 
 //***************************************************************************************************** */
 
+// Challenge - Type Alias
+
+type Employee = {id: number, name: string, department: string};
+type Manager = {id: number, name: string, employees: Employee[] };
+
+const alice: Employee = {id: 1, name: 'Alice', department: 'Sales'};
+const steve: Employee = {id: 1, name: 'Steve', department: 'HR'};
+
+const bob: Manager = {id: 1, name: 'Bob', employees: [alice, steve]};
+
+type Staff = Employee | Manager;
+
+function printStaffDetails(staff: Staff): void{
+    if('employees' in staff){ // check is Manager (content list of Employees)
+        console.log(`${staff.name} is local Manager!`);       
+    } else { // Employees
+        console.log(`${staff.name} is an employee in the ${staff.department}`);        
+    }
+};
+
+printStaffDetails(alice);
+printStaffDetails(bob);
 
 
+//*********************************************************************************************************** */
+
+
+// Intersection Types
 
