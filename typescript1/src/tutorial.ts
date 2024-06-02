@@ -437,7 +437,7 @@ type Animal = {
 
 
 
-// Interface - allow to setup shape for objects (only objects)
+//          Interface - allow to setup shape for objects (only objects)
 
 interface Book1 {
     readonly isbn: number;
@@ -460,7 +460,7 @@ deepWork.title = 'New Title'; // allowed
 //*********************************************************************************************************** */
 
 
-// Interface - Methods
+//                Interface - Methods
 
 interface BookMethods {
     readonly isbn: number;
@@ -488,3 +488,68 @@ const deepWorkInterfaceMethods: BookMethods = {
 deepWorkInterfaceMethods.printAuthor();
 const resultX = deepWorkInterfaceMethods.printTitle('is best book for you!');
 console.log(resultX);
+
+
+//*********************************************************************************************************** */
+
+
+//       Interface - Methods (more options)
+
+
+interface BookMethods1 {
+    readonly isbn: number;
+    title: string;
+    author: string;
+    genre?: string;
+    //methods
+    printAuthor(): void;
+    printTitle(message: string): string;
+    printSomething: (someValue: number) => number;
+}
+
+const deepWorkInterfaceMethods1: BookMethods1 = {
+    isbn: 1234567890,
+    title: 'deep work',
+    author: 'Jon Random1',
+    genre: 'Self-help-Max',
+    printAuthor() {
+        console.log(this.author, '----  Interface - Methods - extra');       
+    },
+    //!alternative
+    // printAuthor: () => {
+    //     console.log(this.author, '----  Interface - Methods');
+    // },
+
+    printTitle(message){
+        return `${this.title} ${message} -- :)`;
+    },
+
+    //!first example
+    // printSomething: function (someValue) {
+    //   return someValue;
+    // }
+
+    //!second example
+    // printSomething: (someValue) => {
+    //     // 'this.author' === deepWorkInterfaceMethods1.author
+    //     console.log(deepWorkInterfaceMethods1.author);
+    //     return someValue;    
+    // }
+
+     //! third option
+     printSomething(someValue) {
+        return someValue;
+     }
+};
+console.log(deepWorkInterfaceMethods1.printSomething(35));
+
+
+deepWorkInterfaceMethods1.printAuthor();
+const resultXX = deepWorkInterfaceMethods1.printTitle('is best book for you! v2');
+console.log(resultXX);
+
+//************************************************************************************************************ */
+
+
+//       Challenge
+
