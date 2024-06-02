@@ -424,3 +424,67 @@ const discountedBook: Book & {discount: number} = {
 };
 
 //*********************************************************************************************************** */
+
+
+const propName = 'age';
+let tiger = { [propName]: 5 };
+
+type Animal = {
+    [propName]: number;
+};
+
+//*********************************************************************************************************** */
+
+
+
+// Interface - allow to setup shape for objects (only objects)
+
+interface Book1 {
+    readonly isbn: number;
+    title: string;
+    author: string;
+    genre?: string;
+}
+
+const deepWork: Book1 = {
+    isbn: 9832398393939383,
+    title: 'Deep Work',
+    author: 'Jon Random',
+    genre: 'Self-help',
+};
+
+deepWork.title = 'New Title'; // allowed
+//deepWork.isbn = 'some value'; // not allowed
+
+
+//*********************************************************************************************************** */
+
+
+// Interface - Methods
+
+interface BookMethods {
+    readonly isbn: number;
+    title: string;
+    author: string;
+    genre?: string;
+    //methods
+    printAuthor(): void;
+    printTitle(message: string): string;
+}
+
+const deepWorkInterfaceMethods: BookMethods = {
+    isbn: 1234567890,
+    title: 'deep work',
+    author: 'Jon Random1',
+    genre: 'Self-help-Max',
+    printAuthor() {
+        console.log(this.author, '----  Interface - Methods');       
+    },
+    printTitle(message){
+        return `${this.title} ${message} -- :)`;
+    },
+};
+
+deepWorkInterfaceMethods.printAuthor();
+const resultX = deepWorkInterfaceMethods.printTitle('is best book for you!');
+console.log(resultX);
